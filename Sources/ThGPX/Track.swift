@@ -44,3 +44,5 @@ extension Track : XMLIndexerDeserializable {
         )
     }
 }
+
+extension Track : Codable {}

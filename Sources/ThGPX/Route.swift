@@ -44,3 +44,5 @@ extension Route : XMLIndexerDeserializable {
         )
     }
 }
+
+extension Route : Codable {}

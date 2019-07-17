@@ -39,3 +39,5 @@ extension Metadata : XMLIndexerDeserializable {
         )
     }
 }
+
+extension Metadata : Codable {}

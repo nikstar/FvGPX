@@ -105,3 +105,5 @@ extension Waypoint : XMLIndexerDeserializable {
         )
     }
 }
+
+extension Waypoint : Codable {}

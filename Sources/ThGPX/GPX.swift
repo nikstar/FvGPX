@@ -48,3 +48,5 @@ extension GPX {
         self = try GPX.deserialize(xml["gpx"])
     }
 }
+
+extension GPX : Codable {}

@@ -17,3 +17,5 @@ extension Segment : XMLIndexerDeserializable {
         )
     }
 }
+
+extension Segment : Codable {}
