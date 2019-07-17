@@ -92,15 +92,3 @@ extension Waypoint : XMLIndexerDeserializable {
         return Waypoint(latitude: lat, longitude: lon, elevation: ele, time: time, name: name)
     }
 }
-
-extension Date : XMLElementDeserializable {
-    public static func deserialize(_ element: SWXMLHash.XMLElement) throws -> Date {
-        let s = String.deserialize(element)
-        let f = ISO8601DateFormatter()
-        if let date = f.date(from: s) {
-            return date
-        } else {
-            throw XMLDeserializationError.typeConversionFailed(type: "ISO 8601 date", element: element)
-        }
-    }
-}

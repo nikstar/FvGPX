@@ -4,15 +4,16 @@ import SWXMLHash
 public struct Segment {
     
     /// A Track Point holds the coordinates, elevation, timestamp, and metadata for a single point in a track.
-    public var waypoints: [Waypoint]
+    public var points: [Waypoint]
     
     /// You can add extend GPX by adding your own elements from another schema here.
-    public var extensions: [Any] = []
+//    public var extensions: [Any] = []
 }
 
 extension Segment : XMLIndexerDeserializable {
     public static func deserialize(_ element: XMLIndexer) throws -> Segment {
-        let points = try element["trkpt"].all.map(Waypoint.deserialize)
-        return Segment(waypoints: points)
+        Segment(
+            points: try element["trkpt"].all.map(Waypoint.deserialize)
+        )
     }
 }

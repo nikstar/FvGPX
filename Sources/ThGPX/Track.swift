@@ -33,16 +33,14 @@ public struct Track {
 
 extension Track : XMLIndexerDeserializable {
     public static func deserialize(_ element: XMLIndexer) throws -> Track {
-        
-        let name = element["name"].element.map(String.deserialize)
-        let comment = element["cmt"].element.map(String.deserialize)
-        let description = element["desc"].element.map(String.deserialize)
-        let source = element["src"].element.map(String.deserialize)
-//        let link = try? Link.deserialize(element["link"])
-        let number = try? element["number"].element.map(Int.deserialize)
-        let type = element["type"].element.map(String.deserialize)
-        let segments = try element["trkseg"].all.map(Segment.deserialize)
-
-        return Track(name: name, comment: comment, description: description, source: source, number: number, type: type, segments: segments)
+        Track(
+            name: try? element["name"].value(),
+            comment: try? element["cmt"].value(),
+            description: try? element["desc"].value(),
+            source: try? element["src"].value(),
+            number: try? element["number"].value(),
+            type: try? element["type"].value(),
+            segments: try element["trkseg"].all.map(Segment.deserialize)
+        )
     }
 }

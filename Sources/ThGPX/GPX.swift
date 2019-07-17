@@ -22,15 +22,16 @@ public struct GPX {
     public var tracks: [Track] = []
     
     /// You can add extend GPX by adding your own elements from another schema here.
-    public var extensions: [Any] = []
+//    public var extensions: [Any] = []
 }
 
 extension GPX: XMLIndexerDeserializable {
-    public static func deserialize(_ element: XMLIndexer) throws -> GPX {
-        let metadata = try? Metadata.deserialize(element.byKey("metadata"))
-        let waypoints = try element["wpt"].all.map(Waypoint.deserialize)
-        let routes = try element["rte"].all.map(Route.deserialize)
-        let tracks = try element["trk"].all.map(Track.deserialize)
-        return GPX(metadata: metadata, waypoints: waypoints, routes: routes, tracks: tracks)
+    public static func deserialize(_ node: XMLIndexer) throws -> GPX {
+        GPX(
+            metadata: try node["metadata"].value(),
+            waypoints: try node["wpt"].all.map { try $0.value() },
+            routes: try node["rte"].all.map { try $0.value() },
+            tracks: try node["trk"].all.map { try $0.value() }
+        )
     }
 }

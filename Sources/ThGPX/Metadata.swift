@@ -31,15 +31,11 @@ public struct Metadata {
 
 extension Metadata: XMLIndexerDeserializable {
     public static func deserialize(_ element: XMLIndexer) throws -> Metadata {
-        let name = element["name"].element.map(String.deserialize)
-        let description = element["desc"].element.map(String.deserialize)
-//        let author = try? Author.deserialize(element["name"])
-//        let copyright = try? Copyright.deserialize(element["copyright"])
-//        let link = try? Link.deserialize(element["link"])
-        let time = try? element["time"].element.map(Date.deserialize)
-        let keywords = element["keywords"].element.map(String.deserialize)
-//        let bounds = try? Bounds.deserialize(element["bounds"])
-        
-        return Metadata(name: name, description: description, time: time, keywords: keywords)
+        Metadata(
+            name: try? element["name"].value(),
+            description: try? element["desc"].value(),
+            time: try? element["time"].value(),
+            keywords: try? element["keywords"].value()
+        )
     }
 }
