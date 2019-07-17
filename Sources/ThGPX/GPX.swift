@@ -7,7 +7,7 @@ public struct GPX {
 //    public let version = "1.1"
     
     /// You must include the name or URL of the software that created your GPX document.  This allows others to inform the creator of a GPX instance document that fails to validate.
-//    public var creator = "ThGPX (https://github.com/nikstar/thgpx)"
+//    public var creator = "ThGPX (https://github.com/nikstar/ThGPX)"
     
     /// Metadata about the file.
     public var metadata: Metadata?
