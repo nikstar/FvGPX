@@ -41,7 +41,7 @@ public struct Waypoint {
     public var source: String?
 
     /// Link to additional information about the waypoint.
-    public var link: String?
+//    public var link: Link?
     
     /// Text of GPS symbol name. For interchange with other programs, use the exact spelling of the symbol as displayed on the GPS.  If the GPS abbreviates words, spell them out.
     public var sym: String?
@@ -52,7 +52,7 @@ public struct Waypoint {
     // MARK: Accuracy info
     
     /// Type of GPX fix.
-    public var fix: String?
+//    public var fix: Fix?
     
     /// Number of satellites used to calculate the GPX fix.
     public var sat: Int?
@@ -67,28 +67,41 @@ public struct Waypoint {
     public var pdop: Double?
     
     /// Number of seconds since last DGPS update.
-    public var ageofdgpsdata: Double?
+    public var ageOfDGPSData: Double?
     
     /// ID of DGPS station used in differential correction.
-    public var dgpsid: String?
+    public var dgpsID: String?
     
     // MARK: - Extensions
     
     /// You can add extend GPX by adding your own elements from another schema here.
-    public var extensions: [Any] = []
+//    public var extensions: [Any] = []
 }
 
 extension Waypoint : XMLIndexerDeserializable {
-    public static func deserialize(_ element: XMLIndexer) throws -> Waypoint {
-        
-        let lat: Double = try element.value(ofAttribute: "lat")
-        let lon: Double = try element.value(ofAttribute: "lon")
-        
-        let ele = try? element["ele"].element.map(Double.deserialize)
-        let time = try? element["time"].element.map(Date.deserialize)
-        
-        let name: String? = try? element.byKey("name").value()
-        
-        return Waypoint(latitude: lat, longitude: lon, elevation: ele, time: time, name: name)
+    public static func deserialize(_ node: XMLIndexer) throws -> Waypoint {
+        Waypoint(
+            latitude: try node.value(ofAttribute: "lat"),
+            longitude: try node.value(ofAttribute: "lon"),
+            
+            elevation: try? node["ele"].value(),
+            time: try? node["time"].value(),
+            magenticVariation: try? node["magvar"].value(),
+            geoidHeight: try? node["geoidheight"].value(),
+            
+            name: try? node["name"].value(),
+            comment: try? node["cmt"].value(),
+            description: try? node["desc"].value(),
+            source: try? node["src"].value(),
+            sym: try? node["sym"].value(),
+            type: try? node["type"].value(),
+            
+            sat: try? node["sat"].value(),
+            hdop: try? node["hdop"].value(),
+            vdop: try? node["vdop"].value(),
+            pdop: try? node["pdop"].value(),
+            ageOfDGPSData: try? node["ageofdgpsdata"].value(),
+            dgpsID: try? node["dgpsid"].value()
+        )
     }
 }

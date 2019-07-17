@@ -16,7 +16,7 @@ public struct Route {
     public var source: String?
     
     /// Links to external information about the route.
-    public var link: String?
+//    public var link: Link?
     
     /// GPS route number.
     public var number: Int?
@@ -25,15 +25,22 @@ public struct Route {
     public var type: String?
     
     /// You can add extend GPX by adding your own elements from another schema here.
-    public var extensions: [Any] = []
+//    public var extensions: [Any] = []
     
     /// A list of route points.
     public var points: [Waypoint]
 }
 
 extension Route : XMLIndexerDeserializable {
-    public static func deserialize(_ element: XMLIndexer) throws -> Route {
-        let points = try element["rtept"].all.map(Waypoint.deserialize)
-        return Route(points: points)
+    public static func deserialize(_ node: XMLIndexer) throws -> Route {
+        Route(
+            name: try? node["name"].value(),
+            comment: try? node["cmt"].value(),
+            description: try? node["desc"].value(),
+            source: try? node["src"].value(),
+            number: try? node["number"].value(),
+            type: try? node["type"].value(),
+            points: try node["rtept"].all.map(Waypoint.deserialize)
+        )
     }
 }
