@@ -20,9 +20,9 @@ extension Date : XMLElementDeserializable, XMLAttributeDeserializable {
         }
     }
     
-    
     fileprivate static func date(from string: String) -> Date? {
-        ISO8601DateFormatter().date(from: string)
+        iso8601formatter.date(from: string)
     }
 }
 
+fileprivate var iso8601formatter = ISO8601DateFormatter()

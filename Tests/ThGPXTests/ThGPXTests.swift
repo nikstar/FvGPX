@@ -43,18 +43,31 @@ final class ThGPXTests: XCTestCase {
         }
     }
     
-    func testPerformance3() {
-        do {
-            for _ in 0..<25 {
-                let xml = SWXMLHash.parse(gpxData3)
-                let gpx = try GPX.deserialize(xml["gpx"])
-                print(gpx.tracks[0].segments[0].points.count)
-            }
-        } catch {
-            print(error)
-            XCTFail()
+    func testPerformance3Full() {
+        measure {
+            let xml = SWXMLHash.parse(gpxData3)
+            let gpx = try! GPX.deserialize(xml["gpx"])
+            print(gpx.tracks[0].segments[0].points.count)
         }
     }
+
+    func testPerformance3XML() {
+        var xml: XMLIndexer! = nil
+        measure {
+            xml = SWXMLHash.parse(gpxData3)
+        }
+        let gpx = try! GPX.deserialize(xml["gpx"])
+        print(gpx.tracks[0].segments[0].points.count)
+    }
+
+    func testPerformance3GPX() {
+        let xml = SWXMLHash.parse(gpxData3)
+        let root = xml["gpx"]
+        measure {
+            let _ = try! GPX.deserialize(root)
+        }
+    }
+
     
     static var allTests = [
         ("testOSMExample1", testOSMExample1),
