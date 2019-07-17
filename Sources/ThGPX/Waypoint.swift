@@ -6,10 +6,10 @@ public struct Waypoint {
     
     // MARK: - Coordinates
     
-    /// The latitude of the point.  This is always in decimal degrees, and always in WGS84 datum.
+    /// The latitude of the point (-90...+90).  This is always in decimal degrees, and always in WGS84 datum.
     public var latitude: Double
     
-    /// The longitude of the point.  This is always in decimal degrees, and always in WGS84 datum.
+    /// The longitude of the point (-180...+180).  This is always in decimal degrees, and always in WGS84 datum.
     public var longitude: Double
     
     // MARK: - Position info
