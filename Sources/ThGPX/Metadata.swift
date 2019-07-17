@@ -29,7 +29,7 @@ public struct Metadata {
 //    public var bounds: Bounds?
 }
 
-extension Metadata: XMLIndexerDeserializable {
+extension Metadata : XMLIndexerDeserializable {
     public static func deserialize(_ element: XMLIndexer) throws -> Metadata {
         Metadata(
             name: try? element["name"].value(),

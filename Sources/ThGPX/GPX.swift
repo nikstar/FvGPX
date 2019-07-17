@@ -43,7 +43,7 @@ extension GPX : XMLIndexerDeserializable {
 }
 
 extension GPX {
-    init(data: Data) throws {
+    public init(data: Data) throws {
         let xml = SWXMLHash.parse(data)
         self = try GPX.deserialize(xml["gpx"])
     }
