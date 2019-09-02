@@ -3,7 +3,7 @@ import SWXMLHash
 @testable import GPX
 
 
-final class ThGPXTests: XCTestCase {
+final class GPXTests: XCTestCase {
     func testOSMExample1() {
         do {
             let xml = SWXMLHash.config { config in
@@ -45,8 +45,7 @@ final class ThGPXTests: XCTestCase {
     
     func testPerformance3Full() {
         measure {
-            let xml = SWXMLHash.parse(gpxData3)
-            let gpx = try! GPX.deserialize(xml["gpx"])
+            let gpx = try! GPX(data: gpxData3)
             print(gpx.tracks[0].segments[0].points.count)
         }
     }

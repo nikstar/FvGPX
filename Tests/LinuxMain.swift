@@ -3,5 +3,5 @@ import XCTest
 import ThGPXTests
 
 var tests = [XCTestCaseEntry]()
-tests += ThGPXTests.allTests()
+tests += GPXTests.allTests()
 XCTMain(tests)
