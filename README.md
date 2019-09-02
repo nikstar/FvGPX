@@ -5,7 +5,7 @@
 Dates are parsed, but otherwise this package does not attempt to do anything smart and stays close to the schema. All structs and properies are documented, feel free to browse [sources](Sources/GPX)
 
 ```swift
-import ThGPX
+import GPX
 
 let gpx = try GPX(data: data)
 ```
