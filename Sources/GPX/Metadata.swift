@@ -20,7 +20,7 @@ public struct Metadata {
 //    public var links: [Link] = []
     
     /// The creation date of the file.
-    public var time: Date?
+    public var time: LazyDate?
     
     /// Keywords associated with the file.  Search engines or databases can use this information to classify the data.
     public var keywords: String?

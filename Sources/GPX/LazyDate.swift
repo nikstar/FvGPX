@@ -1,0 +1,35 @@
+import Foundation
+import SWXMLHash
+
+public final class LazyDate {
+    
+    public var value: Date? {
+        if !parsed {
+            date = iso8601formatter.date(from: string)
+            parsed = true
+        }
+        return date
+    }
+    
+    let string: String
+    fileprivate var parsed = false
+    fileprivate var date: Date?
+    
+    init(string: String) {
+        self.string = string
+    }
+}
+
+fileprivate var iso8601formatter = ISO8601DateFormatter()
+
+extension LazyDate: XMLElementDeserializable, XMLAttributeDeserializable {
+    public static func deserialize(_ element: SWXMLHash.XMLElement) throws -> LazyDate {
+        LazyDate(string: .deserialize(element))
+    }
+
+    public static func deserialize(_ attribute: XMLAttribute) throws -> LazyDate {
+        LazyDate(string: .deserialize(attribute))
+    }
+}
+
+extension LazyDate: Codable { }

@@ -18,7 +18,7 @@ public struct Waypoint {
     public var elevation: Double?
     
     /// Creation/modification timestamp for element. Date and time in are in Univeral Coordinated Time (UTC), not local time! Conforms to ISO 8601 specification for date/time representation. Fractional seconds are allowed for millisecond timing in tracklogs.
-    public var time: Date?
+    public var time: LazyDate?
     
     /// Magnetic variation (in degrees) at the point
     public var magenticVariation: Double?
