@@ -1,6 +1,8 @@
-# ThGPX
+# GPX.swift
 
-This library parses GPX files [according to spec](https://www.topografix.com/gpx.asp). It parses dates, but otherwise does not attempt to do anything smart and stays close to the schema. All structs and properies are documented, feel free to browse [sources](Sources/ThGPX)
+**GPX.swift** parses GPX [according to spec](https://www.topografix.com/gpx.asp). 
+
+Dates are parsed, but otherwise this package does not attempt to do anything smart and stays close to the schema. All structs and properies are documented, feel free to browse [sources](Sources/GPX)
 
 ```swift
 import ThGPX
