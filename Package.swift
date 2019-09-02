@@ -4,20 +4,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "ThGPX",
+    name: "GPX.swift",
     platforms: [.iOS(.v10), .macOS(.v10_12)],
     products: [
-        .library(name: "ThGPX", targets: ["ThGPX"]),
+        .library(name: "GPX", targets: ["GPX"]),
     ],
     dependencies: [
          .package(url: "https://github.com/drmohundro/SWXMLHash.git", from: "4.9.0")
     ],
     targets: [
-        .target(
-            name: "ThGPX",
-            dependencies: ["SWXMLHash"]),
-        .testTarget(
-            name: "ThGPXTests",
-            dependencies: ["ThGPX"]),
+        .target(name: "GPX", dependencies: ["SWXMLHash"]),
+        .testTarget(name: "GPXTests", dependencies: ["GPX"]),
     ]
 )

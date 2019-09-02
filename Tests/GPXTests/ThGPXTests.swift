@@ -1,6 +1,6 @@
 import XCTest
 import SWXMLHash
-@testable import ThGPX
+@testable import GPX
 
 
 final class ThGPXTests: XCTestCase {

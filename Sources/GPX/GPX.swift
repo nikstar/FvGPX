@@ -2,7 +2,7 @@ import Foundation
 import SWXMLHash
 
 fileprivate let defaultVersion = "1.1"
-fileprivate let defaultCreator = "ThGPX (https://github.com/nikstar/ThGPX)"
+fileprivate let defaultCreator = "GPX.swift (https://github.com/nikstar/GPX.swift)"
 
 /// GPX documents contain a metadata header, followed by waypoints, routes, and tracks.  You can add your own elements to the extensions section of the GPX document.
 public struct GPX {
