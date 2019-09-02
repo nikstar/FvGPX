@@ -5,13 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "ThGPX",
-    platforms: [
-        .macOS(.v10_12)
-    ],
+    platforms: [.iOS(.v10), .macOS(.v10_12)],
     products: [
-        .library(
-            name: "ThGPX",
-            targets: ["ThGPX"]),
+        .library(name: "ThGPX", targets: ["ThGPX"]),
     ],
     dependencies: [
          .package(url: "https://github.com/drmohundro/SWXMLHash.git", from: "4.9.0")
