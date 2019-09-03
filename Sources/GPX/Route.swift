@@ -24,9 +24,6 @@ public struct Route {
     /// Type (classification) of route.
     public var type: String?
     
-    /// You can add extend GPX by adding your own elements from another schema here.
-//    public var extensions: [Any] = []
-    
     /// A list of route points.
     public var points: [Waypoint]
 }

@@ -24,9 +24,6 @@ public struct Track {
     /// Type (classification) of track.
     public var type: String?
     
-    /// You can add extend GPX by adding your own elements from another schema here.
-//    public var extensions: [Any] = []
-    
     /// A Track Segment holds a list of Track Points which are logically connected in order. To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, start a new Track Segment for each continuous span of track data.
     public var segments: [Segment]
 }

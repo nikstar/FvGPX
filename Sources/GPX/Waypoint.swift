@@ -71,11 +71,6 @@ public struct Waypoint {
     
     /// ID of DGPS station used in differential correction.
     public var dgpsID: String?
-    
-    // MARK: - Extensions
-    
-    /// You can add extend GPX by adding your own elements from another schema here.
-//    public var extensions: [Any] = []
 }
 
 extension Waypoint : XMLIndexerDeserializable {

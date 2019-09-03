@@ -24,9 +24,6 @@ public struct GPX {
     
     /// A list of tracks.
     public var tracks: [Track] = []
-    
-    /// You can add extend GPX by adding your own elements from another schema here.
-//    public var extensions: [Any] = []
 }
 
 extension GPX : XMLIndexerDeserializable {
