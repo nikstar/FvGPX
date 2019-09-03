@@ -11,13 +11,13 @@ public struct Metadata {
     public var description: String?
     
     /// The person or organization who created the GPX file.
-//    public var author: Author?
+    public var author: Person?
     
     /// Copyright and license information governing use of the file.
-//    public var copyright: Copyright?
+    public var copyright: Copyright?
     
     /// URLs associated with the location described in the file.
-//    public var links: [Link] = []
+    public var links: [Link] = []
     
     /// The creation date of the file.
     public var time: Date?
@@ -34,6 +34,9 @@ extension Metadata : XMLIndexerDeserializable {
         Metadata(
             name: try? element["name"].value(),
             description: try? element["desc"].value(),
+            author: try? element["author"].value(),
+            copyright: try? element["copyright"].value(),
+            links: try element["lik"].all.map(Link.deserialize),
             time: try? element["time"].value(),
             keywords: try? element["keywords"].value()
         )

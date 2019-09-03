@@ -41,7 +41,7 @@ public struct Waypoint {
     public var source: String?
 
     /// Link to additional information about the waypoint.
-//    public var link: Link?
+    public var link: Link?
     
     /// Text of GPS symbol name. For interchange with other programs, use the exact spelling of the symbol as displayed on the GPS.  If the GPS abbreviates words, spell them out.
     public var sym: String?
@@ -93,6 +93,7 @@ extension Waypoint : XMLIndexerDeserializable {
             comment: try? node["cmt"].value(),
             description: try? node["desc"].value(),
             source: try? node["src"].value(),
+            link: try? node["link"].value(),
             sym: try? node["sym"].value(),
             type: try? node["type"].value(),
             
