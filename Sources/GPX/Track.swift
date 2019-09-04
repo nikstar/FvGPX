@@ -16,7 +16,7 @@ public struct Track {
     public var source: String?
     
     /// Links to external information about the track.
-//    public var link: Link?
+    public var link: Link?
     
     /// GPS track number.
     public var number: Int?
@@ -38,6 +38,7 @@ extension Track : XMLIndexerDeserializable {
             comment: try? element["cmt"].value(),
             description: try? element["desc"].value(),
             source: try? element["src"].value(),
+            link: try? element["link"].value(),
             number: try? element["number"].value(),
             type: try? element["type"].value(),
             segments: try element["trkseg"].all.map(Segment.deserialize)

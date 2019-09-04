@@ -97,6 +97,7 @@ extension Waypoint : XMLIndexerDeserializable {
             sym: try? node["sym"].value(),
             type: try? node["type"].value(),
             
+            fix: try? node["fix"].value(),
             sat: try? node["sat"].value(),
             hdop: try? node["hdop"].value(),
             vdop: try? node["vdop"].value(),
