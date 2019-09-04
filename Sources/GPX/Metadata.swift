@@ -26,7 +26,7 @@ public struct Metadata {
     public var keywords: String?
     
     /// Minimum and maximum coordinates which describe the extent of the coordinates in the file.
-//    public var bounds: Bounds?
+    public var bounds: Bounds?
 }
 
 extension Metadata : XMLIndexerDeserializable {
@@ -38,7 +38,8 @@ extension Metadata : XMLIndexerDeserializable {
             copyright: try? element["copyright"].value(),
             links: try element["lik"].all.map(Link.deserialize),
             time: try? element["time"].value(),
-            keywords: try? element["keywords"].value()
+            keywords: try? element["keywords"].value(),
+            bounds: try? element["bounds"].value()
         )
     }
 }
