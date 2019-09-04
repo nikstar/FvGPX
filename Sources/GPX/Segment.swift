@@ -5,9 +5,6 @@ public struct Segment {
     
     /// A Track Point holds the coordinates, elevation, timestamp, and metadata for a single point in a track.
     public var points: [Waypoint]
-    
-    /// You can add extend GPX by adding your own elements from another schema here.
-//    public var extensions: [Any] = []
 }
 
 extension Segment : XMLIndexerDeserializable {

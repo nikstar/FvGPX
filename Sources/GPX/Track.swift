@@ -16,16 +16,13 @@ public struct Track {
     public var source: String?
     
     /// Links to external information about the track.
-//    public var link: Link?
+    public var link: Link?
     
     /// GPS track number.
     public var number: Int?
     
     /// Type (classification) of track.
     public var type: String?
-    
-    /// You can add extend GPX by adding your own elements from another schema here.
-//    public var extensions: [Any] = []
     
     /// A Track Segment holds a list of Track Points which are logically connected in order. To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, start a new Track Segment for each continuous span of track data.
     public var segments: [Segment]
@@ -38,6 +35,7 @@ extension Track : XMLIndexerDeserializable {
             comment: try? element["cmt"].value(),
             description: try? element["desc"].value(),
             source: try? element["src"].value(),
+            link: try? element["link"].value(),
             number: try? element["number"].value(),
             type: try? element["type"].value(),
             segments: try element["trkseg"].all.map(Segment.deserialize)

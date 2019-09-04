@@ -41,7 +41,7 @@ public struct Waypoint {
     public var source: String?
 
     /// Link to additional information about the waypoint.
-//    public var link: Link?
+    public var link: Link?
     
     /// Text of GPS symbol name. For interchange with other programs, use the exact spelling of the symbol as displayed on the GPS.  If the GPS abbreviates words, spell them out.
     public var sym: String?
@@ -52,7 +52,7 @@ public struct Waypoint {
     // MARK: Accuracy info
     
     /// Type of GPX fix.
-//    public var fix: Fix?
+    public var fix: String?
     
     /// Number of satellites used to calculate the GPX fix.
     public var sat: Int?
@@ -71,11 +71,6 @@ public struct Waypoint {
     
     /// ID of DGPS station used in differential correction.
     public var dgpsID: String?
-    
-    // MARK: - Extensions
-    
-    /// You can add extend GPX by adding your own elements from another schema here.
-//    public var extensions: [Any] = []
 }
 
 extension Waypoint : XMLIndexerDeserializable {
@@ -93,9 +88,11 @@ extension Waypoint : XMLIndexerDeserializable {
             comment: try? node["cmt"].value(),
             description: try? node["desc"].value(),
             source: try? node["src"].value(),
+            link: try? node["link"].value(),
             sym: try? node["sym"].value(),
             type: try? node["type"].value(),
             
+            fix: try? node["fix"].value(),
             sat: try? node["sat"].value(),
             hdop: try? node["hdop"].value(),
             vdop: try? node["vdop"].value(),
