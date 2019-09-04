@@ -20,7 +20,7 @@ public struct Metadata {
     public var links: [Link] = []
     
     /// The creation date of the file.
-    public var time: Date?
+    public var date: LazyDate?
     
     /// Keywords associated with the file.  Search engines or databases can use this information to classify the data.
     public var keywords: String?
@@ -37,7 +37,7 @@ extension Metadata : XMLIndexerDeserializable {
             author: try? element["author"].value(),
             copyright: try? element["copyright"].value(),
             links: try element["lik"].all.map(Link.deserialize),
-            time: try? element["time"].value(),
+            date: try? element["time"].value(),
             keywords: try? element["keywords"].value(),
             bounds: try? element["bounds"].value()
         )
