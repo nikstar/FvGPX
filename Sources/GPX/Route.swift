@@ -16,7 +16,7 @@ public struct Route {
     public var source: String?
     
     /// Links to external information about the route.
-//    public var link: Link?
+    public var links: [Link] = []
     
     /// GPS route number.
     public var number: Int?
@@ -35,6 +35,7 @@ extension Route : XMLIndexerDeserializable {
             comment: try? node["cmt"].value(),
             description: try? node["desc"].value(),
             source: try? node["src"].value(),
+            links: try node["lik"].all.map(Link.deserialize),
             number: try? node["number"].value(),
             type: try? node["type"].value(),
             points: try node["rtept"].all.map(Waypoint.deserialize)
