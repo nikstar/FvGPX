@@ -52,7 +52,7 @@ public struct Waypoint {
     // MARK: Accuracy info
     
     /// Type of GPX fix.
-//    public var fix: Fix?
+    public var fix: String?
     
     /// Number of satellites used to calculate the GPX fix.
     public var sat: Int?
