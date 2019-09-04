@@ -10,7 +10,7 @@ final class GPXTests: XCTestCase {
                 
             }.parse(gpxData1)
             let gpx = try GPX.deserialize(xml["gpx"])
-            dump(gpx)
+            dump(gpx, maxDepth: 5)
         } catch {
             print(error)
             XCTFail()
@@ -23,7 +23,7 @@ final class GPXTests: XCTestCase {
                 
             }.parse(gpxData2)
             let gpx = try GPX.deserialize(xml["gpx"])
-            dump(gpx)
+            dump(gpx, maxDepth: 5)
         } catch {
             print(error)
             XCTFail()
@@ -36,7 +36,7 @@ final class GPXTests: XCTestCase {
                 
             }.parse(gpxData3)
             let gpx = try GPX.deserialize(xml["gpx"])
-            dump(gpx)
+            dump(gpx, maxDepth: 5)
         } catch {
             print(error)
             XCTFail()
