@@ -11,11 +11,11 @@ public final class LazyDate {
         return date
     }
     
-    let string: String
+    public let string: String
     fileprivate var parsed = false
     fileprivate var date: Date?
     
-    init(string: String) {
+    public init(string: String) {
         self.string = string
     }
 }
