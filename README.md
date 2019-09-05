@@ -2,7 +2,7 @@
 
 **GPX.swift** parses GPX [according to spec](https://www.topografix.com/gpx.asp). 
 
-Dates are parsed, but otherwise this package does not attempt to do anything smart and stays close to the schema. All structs and properies are documented, feel free to browse [sources](Sources/GPX)
+Dates are parsed lazily, but otherwise this package does not attempt to do anything smart and stays close to the schema. All structs and properies are documented, feel free to browse [sources](Sources/GPX)
 
 ```swift
 import GPX
