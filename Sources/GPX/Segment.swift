@@ -7,7 +7,7 @@ public struct Segment {
     public var points: [Waypoint]
 }
 
-extension Segment : XMLIndexerDeserializable {
+extension Segment: XMLIndexerDeserializable {
     public static func deserialize(_ element: XMLIndexer) throws -> Segment {
         Segment(
             points: try element["trkpt"].all.map(Waypoint.deserialize)
@@ -15,4 +15,4 @@ extension Segment : XMLIndexerDeserializable {
     }
 }
 
-extension Segment : Codable {}
+extension Segment: Equatable, Hashable, Codable { }

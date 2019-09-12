@@ -35,7 +35,7 @@ public struct Waypoint {
     public var comment: String?
     
     /// A text description of the element. Holds additional information about the element intended for the user, not the GPS.
-    public var description: String?
+    public var desc: String?
     
     /// Source of data. Included to give user some idea of reliability and accuracy of data.  "Garmin eTrex", "USGS quad Boston North", e.g.
     public var source: String?
@@ -73,7 +73,7 @@ public struct Waypoint {
     public var dgpsID: String?
 }
 
-extension Waypoint : XMLIndexerDeserializable {
+extension Waypoint: XMLIndexerDeserializable {
     public static func deserialize(_ node: XMLIndexer) throws -> Waypoint {
         Waypoint(
             latitude: try node.value(ofAttribute: "lat"),
@@ -86,7 +86,7 @@ extension Waypoint : XMLIndexerDeserializable {
             
             name: try? node["name"].value(),
             comment: try? node["cmt"].value(),
-            description: try? node["desc"].value(),
+            desc: try? node["desc"].value(),
             source: try? node["src"].value(),
             link: try? node["link"].value(),
             sym: try? node["sym"].value(),
@@ -103,4 +103,4 @@ extension Waypoint : XMLIndexerDeserializable {
     }
 }
 
-extension Waypoint : Codable {}
+extension Waypoint: Equatable, Hashable, Codable { }

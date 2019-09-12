@@ -32,4 +32,12 @@ extension LazyDate: XMLElementDeserializable, XMLAttributeDeserializable {
     }
 }
 
-extension LazyDate: Codable { }
+extension LazyDate: Equatable, Hashable, Codable {
+    public static func == (lhs: LazyDate, rhs: LazyDate) -> Bool {
+        lhs.string == rhs.string
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(string)
+    }
+}

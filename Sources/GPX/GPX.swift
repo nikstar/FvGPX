@@ -26,7 +26,7 @@ public struct GPX {
     public var tracks: [Track] = []
 }
 
-extension GPX : XMLIndexerDeserializable {
+extension GPX: XMLIndexerDeserializable {
     public static func deserialize(_ node: XMLIndexer) throws -> GPX {
         GPX(
             version: node.value(ofAttribute: "version") ?? defaultVersion,
@@ -46,4 +46,4 @@ extension GPX {
     }
 }
 
-extension GPX : Codable {}
+extension GPX: Equatable, Hashable, Codable { }

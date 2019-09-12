@@ -24,4 +24,4 @@ extension Link: XMLIndexerDeserializable {
     }
 }
 
-extension Link: Codable {}
+extension Link: Equatable, Hashable, Codable { }

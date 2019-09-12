@@ -8,7 +8,7 @@ public struct Metadata {
     public var name: String?
     
     /// A description of the contents of the GPX file.
-    public var description: String?
+    public var desc: String?
     
     /// The person or organization who created the GPX file.
     public var author: Person?
@@ -29,11 +29,11 @@ public struct Metadata {
     public var bounds: Bounds?
 }
 
-extension Metadata : XMLIndexerDeserializable {
+extension Metadata: XMLIndexerDeserializable {
     public static func deserialize(_ element: XMLIndexer) throws -> Metadata {
         Metadata(
             name: try? element["name"].value(),
-            description: try? element["desc"].value(),
+            desc: try? element["desc"].value(),
             author: try? element["author"].value(),
             copyright: try? element["copyright"].value(),
             links: try element["lik"].all.map(Link.deserialize),
@@ -44,4 +44,4 @@ extension Metadata : XMLIndexerDeserializable {
     }
 }
 
-extension Metadata : Codable {}
+extension Metadata: Equatable, Hashable, Codable { }

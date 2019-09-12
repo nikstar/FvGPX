@@ -28,4 +28,4 @@ extension Bounds: XMLIndexerDeserializable {
     }
 }
 
-extension Bounds: Codable {}
+extension Bounds: Equatable, Hashable, Codable { }

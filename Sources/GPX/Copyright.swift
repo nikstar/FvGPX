@@ -24,4 +24,4 @@ extension Copyright: XMLIndexerDeserializable {
     }
 }
 
-extension Copyright: Codable {}
+extension Copyright: Equatable, Hashable, Codable { }

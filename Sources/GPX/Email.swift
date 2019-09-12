@@ -16,4 +16,4 @@ extension Email: XMLIndexerDeserializable {
     }
 }
 
-extension Email: Codable {}
+extension Email: Equatable, Hashable, Codable { }

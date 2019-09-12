@@ -10,7 +10,7 @@ public struct Route {
     public var comment: String?
     
     /// Text description of route for user.  Not sent to GPS.
-    public var description: String?
+    public var desc: String?
     
     /// Source of data. Included to give user some idea of reliability and accuracy of data.
     public var source: String?
@@ -28,12 +28,12 @@ public struct Route {
     public var points: [Waypoint]
 }
 
-extension Route : XMLIndexerDeserializable {
+extension Route: XMLIndexerDeserializable {
     public static func deserialize(_ node: XMLIndexer) throws -> Route {
         Route(
             name: try? node["name"].value(),
             comment: try? node["cmt"].value(),
-            description: try? node["desc"].value(),
+            desc: try? node["desc"].value(),
             source: try? node["src"].value(),
             links: try node["lik"].all.map(Link.deserialize),
             number: try? node["number"].value(),
@@ -43,4 +43,4 @@ extension Route : XMLIndexerDeserializable {
     }
 }
 
-extension Route : Codable {}
+extension Route: Equatable, Hashable, Codable { }

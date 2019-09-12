@@ -25,5 +25,4 @@ extension Person: XMLIndexerDeserializable {
     }
 }
 
-extension Person: Codable {}
-
+extension Person: Equatable, Hashable, Codable { }

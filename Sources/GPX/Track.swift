@@ -10,7 +10,7 @@ public struct Track {
     public var comment: String?
     
     /// User description of track.
-    public var description: String?
+    public var desc: String?
     
     /// Source of data. Included to give user some idea of reliability and accuracy of data.
     public var source: String?
@@ -28,12 +28,12 @@ public struct Track {
     public var segments: [Segment]
 }
 
-extension Track : XMLIndexerDeserializable {
+extension Track: XMLIndexerDeserializable {
     public static func deserialize(_ element: XMLIndexer) throws -> Track {
         Track(
             name: try? element["name"].value(),
             comment: try? element["cmt"].value(),
-            description: try? element["desc"].value(),
+            desc: try? element["desc"].value(),
             source: try? element["src"].value(),
             link: try? element["link"].value(),
             number: try? element["number"].value(),
@@ -43,4 +43,4 @@ extension Track : XMLIndexerDeserializable {
     }
 }
 
-extension Track : Codable {}
+extension Track: Equatable, Hashable, Codable { }
