@@ -15,5 +15,5 @@ Keep in mind that this call takes nontrivial time for large files.
 Add to your project via Swift package manager:
 
 ```
-        .package(url: "https://github.com/nikstar/ThGPX.git", .branch("master"))
+        .package(url: "https://github.com/nikstar/GPX.swift.git", from: "0.2.1")
 ```
